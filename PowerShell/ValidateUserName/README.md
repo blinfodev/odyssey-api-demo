@@ -1,4 +1,4 @@
-# FetchData/SQL Example
+# System/ValidateUserName Example
 
 This example application shows how to query the `OODAPI` via the `System/ValidateUserName` method. This is a `PowerShell` script that you can run from a `PowerShell` terminal in Windows.
 
