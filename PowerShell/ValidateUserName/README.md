@@ -1,8 +1,8 @@
-# System/ValidateUserName Example
+# System/ValidateUsername Example
 
-This example application shows how to query the `OODAPI` via the `System/ValidateUserName` method. This is a `PowerShell` script that you can run from a `PowerShell` terminal in Windows.
+This example application shows how to query the `OODAPI` via the `System/ValidateUsername` method. This is a `PowerShell` script that you can run from a `PowerShell` terminal in Windows.
 
-This information is intended for Odyssey administrators or developers who wish to understand how to use the `OODAPI`, and the `System/ValidateUserName` method, in `PowerShell` scripting.
+This information is intended for Odyssey administrators or developers who wish to understand how to use the `OODAPI`, and the `System/ValidateUsername` method, in `PowerShell` scripting.
 
 # Requirements
 
@@ -10,9 +10,9 @@ This information is intended for Odyssey administrators or developers who wish t
 
 # Setup
 
-*  Open the file `ValidateUserName.ps1` in a text editor and place the URL to your `OODAPI` installation as well as a test UserName and Password. Additionally, update the `X-API-Key` header with your `OODAPI` API Key.
+*  Open the file `ValidateUsername.ps1` in a text editor and place the URL to your `OODAPI` installation as well as a test Username and Password. Additionally, update the `X-API-Key` header with your `OODAPI` API Key.
 *  Open a `PowerShell` terminal
-*  Run `ValidateUserName.ps1` and note that it will print whether or not the supplied credentials were valid
+*  Run `ValidateUsername.ps1` and note that it will print whether or not the supplied credentials were valid
 
 # Details
 

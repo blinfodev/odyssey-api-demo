@@ -1,5 +1,5 @@
 <#
-	OODAPI ValidateUserName Example using Windows Powershell
+	OODAPI ValidateUsername Example using Windows Powershell
 	Austin Brown
 	B&L Information Systems
 
@@ -15,7 +15,7 @@ $apiURL = "https://your-server.com/odyssey/OODAPI"
 
 # Construct the Body the HTTP Request
 $data = @{
-    UserName="Your Username"
+    Username="Your Username"
     Password="Your Password"
 }
 $json = $data | ConvertTo-Json
@@ -27,8 +27,8 @@ $headers.Add("X-API-KEY", "xxxx-xxxx-xxxx")
 # This header prevents powershell from caching the response of repeated requests
 $headers.Add("Cache-Control", "no-cache")
 
-# Call the OODAPI's ValidateUserName procedure
-$response = Invoke-RestMethod "$apiURL/System/ValidateUserName" -Headers $headers -Method POST -Body $json -ContentType "application/json"
+# Call the OODAPI's ValidateUsername procedure
+$response = Invoke-RestMethod "$apiURL/System/ValidateUsername" -Headers $headers -Method POST -Body $json -ContentType "application/json"
 
 # You can use the following command to print the response of the request to the terminal
 # $response | ConvertTo-Json
