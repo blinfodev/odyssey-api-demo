@@ -1,0 +1,178 @@
+﻿Imports System.Web.Script.Serialization
+
+Module Module1
+
+    Sub Main()
+        ' *** REQUIRED FIELD
+        ' Place the base path to your Odyssey API here, without a trailing slash
+        Dim BaseAPILocation = "https://api.blinfo.com/company"
+
+        ' *** REQUIRED FIELD
+        ' Place your Odyssey API Key here
+        Dim APIKey = ""
+
+        ' *** REQUIRED FIELD
+        ' The CompanyID used to authenticate your request to the API
+        Dim APIKeyCompanyID = ""
+
+        ' *** REQUIRED FIELD
+        ' The SQL Query to perform on the API
+        ' This test call gets a Product, joins its Customer to it, then joins the first Shipto it finds for that Customer
+        Dim SQLQuery = "SELECT TOP 1 Products.Product, Customer.Coname, topShipTo.ShipToName FROM Products LEFT OUTER JOIN Customer on Customer.Customer = Products.Customer LEFT OUTER JOIN (SELECT DISTINCT Customer, Coname as ShipToName  FROM ShipTo) topShipTo on topShipTo.Customer = Customer.Customer"
+
+        Dim sqlRequester = New FetchDataSQL()
+        Dim requestBody = New FetchDataSQLRequest With {
+            .SQLQuery = SQLQuery,
+            .APIKey = APIKey,
+            .CompanyID = APIKeyCompanyID,
+            .BatchSize = 0,
+            .Page = 1
+        }
+
+        Dim responseBody = sqlRequester.RunQuery(BaseAPILocation, requestBody)
+
+        If responseBody Is Nothing Then
+            MsgBox("Error. No response received from the API.")
+            Return
+        End If
+
+        If Not responseBody.Success Then
+            MsgBox("Error calling the API. Error Message: " + Environment.NewLine + Environment.NewLine + responseBody.ErrorMessage)
+            Return
+        End If
+
+
+        If responseBody.DataSetOut Is Nothing Then
+            MsgBox("The API call was successful but no data set was returned.")
+            Return
+        End If
+
+        If responseBody.DataSetOut.Tables.Count = 0 Then
+            MsgBox("No tables were returned.")
+            Return
+        End If
+
+
+        If responseBody.DataSetOut.Tables(0).Rows.Count = 0 Then
+            MsgBox("No rows were returned.")
+            Return
+        End If
+
+        ' We know we have one or more records
+        Dim responseRow = responseBody.DataSetOut.Tables(0).Rows(0)
+
+        ' Here you can reference any field that is returned from your SQL query
+        Dim productName = responseRow("Product")
+        Dim customerName = responseRow("Coname")
+        Dim shipToName = responseRow("ShipToName")
+        MsgBox("Product: " + productName + Environment.NewLine + Environment.NewLine + " Customer Name: " + customerName + Environment.NewLine + Environment.NewLine + " Ship to name: " + shipToName)
+    End Sub
+
+    Public Class FetchDataSQL
+        Public Function RunQuery(ByVal apiLocation As String, ByVal requestBody As FetchDataSQLRequest) As FetchDataSQLResponse
+            ' Create a reference to the "HTTP" object, which makes the request to the API
+            ' Set the content type to tell the API to return JSON data, and pass your APIKey in the HTTP headers
+            Dim http As Object
+            http = CreateObject("WinHttp.WinHttprequest.5.1")
+
+            Dim RequestType = "POST"
+            http.Open(RequestType, apiLocation + "/FetchData/SQL", False)
+            http.setRequestHeader("Content-Type", "application/json")
+
+            If requestBody.APIKey IsNot Nothing And requestBody.APIKey.Length > 0 Then
+                http.setRequestHeader("X-API-Key", requestBody.APIKey)
+            End If
+
+            Dim serializer = New JavaScriptSerializer()
+            http.send(serializer.Serialize(requestBody))
+            Dim statusCode = http.Status
+
+            If statusCode = "404" Then
+                MsgBox("Could not locate your Odyssey API. Please confirm the URL you have entered.")
+                Return Nothing
+            End If
+
+            If statusCode <> "200" Then
+                MsgBox("The HTTP request failed. Status Code: " + statusCode)
+                Return Nothing
+            End If
+
+            Dim responseBody = serializer.Deserialize(Of FetchDataSQLResponse)(http.responseText)
+
+            ' Custom parsing of the "DataTable" object
+            ' NOTE This code is not intended to be production ready
+            ' This should be using JSON.NET for proper JSON parsing
+            ' This was avoided in the demo due to potential dependency issues
+            If responseBody IsNot Nothing And responseBody.Success Then
+                Dim tableJson = http.responseText
+                Dim findPart = "tTemptable"":" ' the beginning of the DataTable JSON string
+                Dim leftIndex = tableJson.IndexOf(findPart)
+                If leftIndex <> 0 Then
+                    Dim tablePart = tableJson.Substring(leftIndex + findPart.Length)
+                    Dim endPart = "]" ' the end of the JSON array in the data set string
+                    Dim rightIndex = tablePart.IndexOf(endPart)
+                    If rightIndex <> 0 Then
+                        tablePart = tablePart.Substring(0, rightIndex + 1)
+                        Dim obj = serializer.Deserialize(Of List(Of Object))(tablePart)
+
+                        responseBody.DataSetOut = New DataSet()
+                        Dim table = responseBody.DataSetOut.Tables.Add("tTemptable")
+
+                        For Each record As Object In obj
+                            Dim dataRow = table.NewRow()
+                            For Each field In record
+                                If Not table.Columns.Contains(field.Key) Then
+                                    table.Columns.Add(field.Key)
+                                End If
+
+                                dataRow(field.Key) = field.Value
+                            Next
+
+                            table.Rows.Add(dataRow)
+                        Next
+
+                        table.AcceptChanges()
+                        responseBody.DataSetOut.AcceptChanges()
+                    End If
+                End If
+            End If
+
+            Return responseBody
+        End Function
+    End Class
+
+    ' The information sent to the API 
+    Public Class FetchDataSQLRequest
+        ' The APIKey used to authenticate your request to the API
+        Public APIKey As String
+
+        ' This Is a fully formed And fully qualified SQL query that conforms to SQL-92 syntax. 
+        ' The tables specified And the field specified in the SQL statement must exist as defined in the database in order for the query to work.
+        Public SQLQuery As String
+
+        ' If you only want to return a subset of records, you can identify which page of records to return. 
+        ' If this Is 0, then all records from the database table specified in the SQL query are returned.
+        Public Page As Integer
+
+        ' This specifies the number Or records to return for each page. If you wish to return all records, this should be set to zero.
+        Public BatchSize As Integer
+
+        ' This is the Company that you are validating your API request with
+        ' You can fetch records from any company, based your query, but this is used to ensure a valid APIKey/CompanyID combination
+        ' This can be ignored if using an APIKey which was generated for a specific company
+        ' This is requied if using an APIKey which was generated for 'any company'
+        Public CompanyID As String
+    End Class
+
+    Public Class FetchDataSQLResponse
+        ' The dataset of records returned by the query
+        Public DataSetOut As DataSet
+
+        ' Whether or not the API request was successful
+        Public Success As Boolean
+
+        ' The error returned by the API, if any exists
+        Public ErrorMessage As String
+    End Class
+
+End Module
