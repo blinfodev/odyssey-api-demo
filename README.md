@@ -12,7 +12,7 @@ You can find the documentation for your specific OODAPI installation at the loca
 
 For example, if you access the API at `https://api.blinfo.com/company/` you can navigate to the URL `https://api.blinfo.com/company/Documentation` for the application docs.
 
-You can also find the latest Postman documentation at https://documenter.getpostman.com/view/3905539/SVSRGRXL?version=latest 
+You can also find the latest Postman documentation at https://documenter.getpostman.com/view/3905539/SzKTwKCU
 
 Postman is a wonderful, free tool that can show you how to use all the OODAPI endpoints with examples and detailed documentation. You can download Postman here: https://www.getpostman.com/downloads/
 
