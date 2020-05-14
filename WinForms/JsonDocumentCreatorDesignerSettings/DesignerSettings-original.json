@@ -1,0 +1,660 @@
+{
+	"DocumentType": 0,
+	"Design": [
+		{
+			"NodeType": 2,
+			"SourceType": "Input",
+			"InputOrColumnName": "Root",
+			"Children": [
+				{
+					"NodeName": "TableName",
+					"NodeType": 3,
+					"SourceType": "Static",
+					"NodeWriteSettings": "Employees"
+				},
+				{
+					"NodeName": "CompanyID",
+					"NodeType": 3,
+					"SourceType": "Static",
+					"NodeWriteSettings": "OCIW"
+				},
+				{
+					"NodeName": "Broker",
+					"NodeType": 3,
+					"SourceType": "Static",
+					"NodeWriteSettings": ""
+				},
+				{
+					"NodeName": "ListOfFieldValues",
+					"NodeType": 1,
+					"SourceType": "None",
+					"Children": [
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Clocknumber"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Clocknumber"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "badge"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Badge"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "name"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Name"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Address1"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Address1"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Address2"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Address2"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Address3"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Address3"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "State"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "State"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "City"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "City"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Zipcode"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Zipcode"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Email"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Email"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "DateHired"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "DateHired"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "CompanyPayrollID"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "CompanyPayrollID"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "FirstName"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "FirstName"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Department"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Department"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Homephone"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Homephone"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Lastname"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Lastname"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "MiddleInit"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "MiddleInit"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Foreman"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Foreman"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "PayRate"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "PayRate"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "WorkPhone"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "WorkPhone"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "PayrollID"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "PayrollID"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Cellphone"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Cellphone"
+								}
+							]
+						},
+						{
+							"NodeType": 2,
+							"SourceType": "None",
+							"Children": [
+								{
+									"NodeName": "Key",
+									"NodeType": 3,
+									"SourceType": "Static",
+									"NodeWriteSettings": "Shift"
+								},
+								{
+									"NodeName": "Value",
+									"NodeType": 3,
+									"SourceType": "Column",
+									"InputOrColumnName": "Shift"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"ComponentProperties": {
+		"LocalFilePath": "{\"IsExpression\":false,\"Value\":\"\"}",
+		"HttpMethod": "POST",
+		"BatchSize": 1000,
+		"IsRepeatedTextQualifier": "Double-Quote ( \" )",
+		"RequestBody": "{\"IsExpression\":false,\"Value\":\"@[MergedJson]\"}",
+		"NullMode": 1,
+		"ItemKey": "{\"IsExpression\":false,\"Value\":\"\"}",
+		"BasePath": "{\"IsExpression\":false,\"Value\":\"\"}",
+		"MergeMode": 0,
+		"Encoding": 1252,
+		"LocalFileEncoding": "Unicode (UTF-8)",
+		"RequestQueryStringParameters": "[]",
+		"RequestHeaders": "[{\"Key\":\"X-API-KEY\",\"Value\":{\"IsExpression\":false,\"Value\":\"ed165591-6cda-eeb2-5f14-36d3bce18708\"}}]",
+		"PrintPretty": true,
+		"IsRepeatedTextDelimiter": "Comma ( , )",
+		"RelativePath": "{\"IsExpression\":false,\"Value\":\"Record/Add\"}"
+	},
+	"Inputs": [
+		{
+			"Name": "Root",
+			"Columns": [
+				{
+					"Name": "Clocknumber",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Badge",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Name",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Address1",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Address2",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Address3",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "State",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "City",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Zipcode",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Email",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "DateHired",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "CompanyPayrollID",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "FirstName",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Department",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Homephone",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Lastname",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "MiddleInit",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Foreman",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "PayRate",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "WorkPhone",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "PayrollID",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Cellphone",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				},
+				{
+					"Name": "Shift",
+					"DateType": 130,
+					"Length": 255,
+					"Precision": 0,
+					"Scale": 0,
+					"CodePage": 0
+				}
+			]
+		}
+	]
+}
